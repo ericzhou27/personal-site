@@ -38,7 +38,7 @@ body {
 }
 
 .wrapper {
-  padding: 10px;
+  /* padding: 10px; */
   /* width: 668px;
   height: 432px; */
   width: 334px;
@@ -149,6 +149,6 @@ body {
 .second {
   height: 100vh;
   /* border: 1px solid orange; */
-  background: #39393d;
+  /* background: #39393d; */
   /* background-color: white; */
 }
