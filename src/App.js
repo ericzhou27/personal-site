@@ -121,6 +121,7 @@ function Model(props) {
                   <ReactTerminal
                     ref={terminal}
                     inputStr="ls"
+                    clickToFocus={true}
                     emulatorState={emulatorState}
                     promptSymbol="ericzhou@myth64:~$ "
                     theme={{
@@ -245,12 +246,22 @@ export default class App extends React.Component {
               I graduated from one of Americas's top computer schools with
               really good grades
             </p>
-            {/* <i class="fa fa-angle-down scrollIndicator"></i> */}
+            <a href="#second">
+              <i class="fa fa-angle-down scrollIndicator"></i>
+            </a>
           </div>
         </div>
 
-        {/* <div class="second" />
-        <div class="second" /> */}
+        <div class="sectionWrapper second" id="second">
+          <p class="sectionTitleText">Education</p>
+        </div>
+        <div class="sectionWrapper third">
+          <p class="sectionTitleText">Experience</p>
+        </div>
+        <div class="sectionWrapper fourth">
+          <p class="sectionTitleText">Projects</p>
+        </div>
+        <div class="sectionWrapper footer"></div>
       </>
     );
   }
