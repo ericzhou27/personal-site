@@ -13,14 +13,20 @@ import ReactTerminal from "react-terminal-component";
 import {
   EmulatorState,
   OutputFactory,
-  CommandMapping,
-  EnvironmentVariables,
   FileSystem,
-  History,
   Outputs,
-  defaultCommandMapping,
 } from "javascript-terminal";
 import YouTube from "react-youtube";
+
+import {
+  resume,
+  hobbies,
+  electify,
+  portals,
+  musea,
+  ruma,
+  lightboard,
+} from "./constants/strings";
 
 function Model(props) {
   const group = useRef();
@@ -67,15 +73,18 @@ function Model(props) {
   const customState = EmulatorState.create({
     fs: FileSystem.create({
       "/RESUME.txt": {
-        content:
-          "Stanford University - B.S. Computer Science\nStanford University - M.S. Computer Science\nPortals - Founder\nVerkada - SWE Intern",
+        content: resume,
       },
       "/HOBBIES.txt": {
-        content: "memes",
+        content: hobbies,
       },
       "/secret": {},
       "/projects": {},
-      "/projects/file": { content: "End of nested directory!" },
+      "/projects/PORTALS.txt": { content: portals },
+      "/projects/ELECTIFY.txt": { content: electify },
+      "/projects/MUSEA.txt": { content: musea },
+      "/projects/RUMA.txt": { content: ruma },
+      "/projects/LIGHTBOARD.txt": { content: lightboard },
     }),
   });
 
@@ -84,7 +93,9 @@ function Model(props) {
 
   const newOutputs = Outputs.addRecord(
     defaultOutputs,
-    OutputFactory.makeTextOutput(`TRY ME :)\n-------`)
+    OutputFactory.makeTextOutput(
+      `--------------\n✨ CLICK ME ✨\n--------------`
+    )
   );
   const emulatorState = customState.setOutputs(newOutputs);
 
@@ -112,12 +123,6 @@ function Model(props) {
                 {showSecret ? (
                   <YouTube videoId="dQw4w9WgXcQ" opts={opts} />
                 ) : (
-                  // <div className="laptopImageWrapper">
-                  //   <img
-                  //     className="laptopImage"
-                  //     src="http://identity.stanford.edu/wp-content/uploads/sites/3/2020/07/block-s-right.png"
-                  //   />
-                  // </div>
                   <ReactTerminal
                     ref={terminal}
                     inputStr="ls"
@@ -130,7 +135,9 @@ function Model(props) {
                       commandColor: "#fff",
                       outputColor: "#fff",
                       errorOutputColor: "#ff89bd",
-                      fontSize: "0.65rem",
+                      // fontSize: "0.65rem",
+                      // fontSize: "0.75rem",
+                      fontSize: "0.85rem",
                       spacing: "1%",
                       fontFamily: "monospace",
                       width: "100%",
@@ -187,8 +194,11 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      showBlur: false,
       isMobile: false,
     };
+
+    this.splashContainer = React.createRef();
   }
 
   componentDidMount() {
@@ -196,12 +206,56 @@ export default class App extends React.Component {
     this.setState({
       isMobile: isMobile,
     });
+
+    window.addEventListener(
+      "scroll",
+      (e) => {
+        let splashContainer = this.splashContainer.current;
+        let pixFromQuarter = Math.max(
+          0,
+          e.target.scrollTop - window.innerHeight / 4
+        );
+        splashContainer.style.filter = `blur(${Math.min(
+          pixFromQuarter / 5,
+          10
+        )}px) brightness(${Math.max(
+          1 - pixFromQuarter / window.innerHeight,
+          0.5
+        )})`;
+
+        // splashContainer.style["-webkit-filter"] = `blur(${Math.min(
+        //   Math.max(0, e.target.scrollTop - window.innerHeight / 4) / 5,
+        //   10
+        // )}px)`;
+
+        // filter: brightness(1.75);
+        // if (
+        //   e.target.scrollTop > window.innerHeight / 4 &&
+        //   !this.state.showBlur
+        // ) {
+        //   this.setState({
+        //     showBlur: true,
+        //   });
+        // } else if (
+        //   e.target.scrollTop < window.innerHeight / 4 &&
+        //   this.state.showBlur
+        // ) {
+        //   this.setState({
+        //     showBlur: false,
+        //   });
+        // }
+        // console.log(e.target.scrollTop, window.innerHeight);
+      },
+      true
+    );
   }
 
   render() {
     return (
-      <>
-        <div class="App">
+      <div class="pageWrapper">
+        <div class="sidebar"></div>
+
+        <div class="splashContainer" ref={this.splashContainer}>
           <div
             class={this.state.isMobile ? "mobileModelWrapper" : "modelWrapper"}
           >
@@ -242,10 +296,7 @@ export default class App extends React.Component {
           {!this.state.isMobile && <div class="pad" />}
           <div class="titleWrapper">
             <p class="titleText">Eric Zhou</p>
-            <p class="subtitleText">
-              I graduated from one of Americas's top computer schools with
-              really good grades
-            </p>
+            <p class="subtitleText">beep bop</p>
             <a href="#second">
               <i class="fa fa-angle-down scrollIndicator"></i>
             </a>
@@ -253,16 +304,33 @@ export default class App extends React.Component {
         </div>
 
         <div class="sectionWrapper second" id="second">
-          <p class="sectionTitleText">Education</p>
+          <p class="sectionTitleText">About</p>
         </div>
         <div class="sectionWrapper third">
-          <p class="sectionTitleText">Experience</p>
-        </div>
-        <div class="sectionWrapper fourth">
           <p class="sectionTitleText">Projects</p>
         </div>
-        <div class="sectionWrapper footer"></div>
-      </>
+        <div class="sectionWrapper fourth">
+          <p class="sectionTitleText">Writing</p>
+        </div>
+        <div class="sectionWrapper fifth">
+          <p class="sectionTitleText">Contact</p>
+        </div>
+        <div class="footer"></div>
+      </div>
     );
   }
+
+  // render() {
+  //   return (
+  //     <div class="pageWrapper">
+  //       <div class="second">
+  //         <p class="sectionTitleText">Projects</p>
+  //       </div>
+  //       <div class="third">
+  //         <p class="sectionTitleText">Projects</p>
+  //       </div>
+  //       <div class="fourth" />
+  //     </div>
+  //   );
+  // }
 }
