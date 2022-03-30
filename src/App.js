@@ -199,6 +199,12 @@ export default class App extends React.Component {
     };
 
     this.splashContainer = React.createRef();
+
+    this.sectionOne = React.createRef();
+    this.sectionTwo = React.createRef();
+    this.sectionThree = React.createRef();
+    this.sectionFour = React.createRef();
+    this.sectionFive = React.createRef();
   }
 
   componentDidMount() {
@@ -210,7 +216,9 @@ export default class App extends React.Component {
     window.addEventListener(
       "scroll",
       (e) => {
-        let splashContainer = this.splashContainer.current;
+        const splashContainer = this.splashContainer.current;
+        const pixFromTop = e.target.scrollTop;
+        const h = this.splashContainer.current.clientHeight;
         let pixFromQuarter = Math.max(
           0,
           e.target.scrollTop - window.innerHeight / 4
@@ -223,28 +231,29 @@ export default class App extends React.Component {
           0.5
         )})`;
 
-        // splashContainer.style["-webkit-filter"] = `blur(${Math.min(
-        //   Math.max(0, e.target.scrollTop - window.innerHeight / 4) / 5,
-        //   10
-        // )}px)`;
+        const sectionOne = this.sectionOne.current;
+        const sectionTwo = this.sectionTwo.current;
+        const sectionThree = this.sectionThree.current;
+        const sectionFour = this.sectionFour.current;
+        const sectionFive = this.sectionFive.current;
 
-        // filter: brightness(1.75);
-        // if (
-        //   e.target.scrollTop > window.innerHeight / 4 &&
-        //   !this.state.showBlur
-        // ) {
-        //   this.setState({
-        //     showBlur: true,
-        //   });
-        // } else if (
-        //   e.target.scrollTop < window.innerHeight / 4 &&
-        //   this.state.showBlur
-        // ) {
-        //   this.setState({
-        //     showBlur: false,
-        //   });
-        // }
-        // console.log(e.target.scrollTop, window.innerHeight);
+        sectionOne.style.opacity = 0.5;
+        sectionTwo.style.opacity = 0.5;
+        sectionThree.style.opacity = 0.5;
+        sectionFour.style.opacity = 0.5;
+        sectionFive.style.opacity = 0.5;
+
+        if (pixFromTop < h) {
+          sectionOne.style.opacity = 1;
+        } else if (pixFromTop < 2 * h) {
+          sectionTwo.style.opacity = 1;
+        } else if (pixFromTop < 3 * h) {
+          sectionThree.style.opacity = 1;
+        } else if (pixFromTop < 4 * h) {
+          sectionFour.style.opacity = 1;
+        } else if (pixFromTop < 5 * h) {
+          sectionFive.style.opacity = 1;
+        }
       },
       true
     );
@@ -252,85 +261,149 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div class="pageWrapper">
-        <div class="sidebar"></div>
-
-        <div class="splashContainer" ref={this.splashContainer}>
+      <>
+        <div class="sidebar">
           <div
-            class={this.state.isMobile ? "mobileModelWrapper" : "modelWrapper"}
-          >
-            <Canvas dpr={[1, 2]} camera={{ position: [-10, 0, -25], fov: 35 }}>
-              <pointLight position={[10, 10, 10]} intensity={1.5} />
-              <Suspense fallback={null}>
-                <group
-                  rotation={[0, Math.PI, 0]}
-                  scale={
-                    new THREE.Vector3(
-                      Math.min(1, window.innerWidth / 800),
-                      Math.min(1, window.innerWidth / 800),
-                      Math.min(1, window.innerWidth / 800)
-                    )
-                  }
-                >
-                  <Model />
-                </group>
-                <Environment preset="city" />
-              </Suspense>
-              <ContactShadows
-                rotation-x={Math.PI / 2}
-                position={[0, -4.5, 0]}
-                opacity={1}
-                width={20}
-                height={20}
-                blur={2}
-                far={4.5}
-              />
-              <OrbitControls
-                enablePan={false}
-                enableZoom={false}
-                minPolarAngle={Math.PI / 2}
-                maxPolarAngle={Math.PI / 2}
-              />
-            </Canvas>
-          </div>
-          {!this.state.isMobile && <div class="pad" />}
-          <div class="titleWrapper">
-            <p class="titleText">Eric Zhou</p>
-            <p class="subtitleText">beep bop</p>
-            <a href="#second">
-              <i class="fa fa-angle-down scrollIndicator"></i>
-            </a>
-          </div>
+            ref={this.sectionOne}
+            class="sidebarItem"
+            onClick={() => {
+              window.document.body.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+            }}
+          />
+          <div
+            ref={this.sectionTwo}
+            class="sidebarItem"
+            onClick={() => {
+              const h = this.splashContainer.current.clientHeight;
+              window.document.body.scrollTo({
+                top: h,
+                behavior: "smooth",
+              });
+            }}
+          />
+          <div
+            ref={this.sectionThree}
+            class="sidebarItem"
+            onClick={() => {
+              const h = this.splashContainer.current.clientHeight;
+              window.document.body.scrollTo({
+                top: h * 2,
+                behavior: "smooth",
+              });
+            }}
+          />
+          <div
+            ref={this.sectionFour}
+            class="sidebarItem"
+            onClick={() => {
+              const h = this.splashContainer.current.clientHeight;
+              window.document.body.scrollTo({
+                top: h * 3,
+                behavior: "smooth",
+              });
+            }}
+          />
+          <div
+            ref={this.sectionFive}
+            class="sidebarItem"
+            onClick={() => {
+              const h = this.splashContainer.current.clientHeight;
+              window.document.body.scrollTo({
+                top: h * 4,
+                behavior: "smooth",
+              });
+            }}
+          />
         </div>
 
-        <div class="sectionWrapper second" id="second">
-          <p class="sectionTitleText">About</p>
+        <div class="pageWrapper">
+          <div
+            class="splashContainer"
+            id="sectionOne"
+            ref={this.splashContainer}
+          >
+            <div
+              class={
+                this.state.isMobile ? "mobileModelWrapper" : "modelWrapper"
+              }
+            >
+              <Canvas
+                dpr={[1, 2]}
+                camera={{ position: [-10, 0, -25], fov: 35 }}
+              >
+                <pointLight position={[10, 10, 10]} intensity={1.5} />
+                <Suspense fallback={null}>
+                  <group
+                    rotation={[0, Math.PI, 0]}
+                    scale={
+                      new THREE.Vector3(
+                        Math.min(1, window.innerWidth / 800),
+                        Math.min(1, window.innerWidth / 800),
+                        Math.min(1, window.innerWidth / 800)
+                      )
+                    }
+                  >
+                    <Model />
+                  </group>
+                  <Environment preset="city" />
+                </Suspense>
+                <ContactShadows
+                  rotation-x={Math.PI / 2}
+                  position={[0, -4.5, 0]}
+                  opacity={1}
+                  width={20}
+                  height={20}
+                  blur={2}
+                  far={4.5}
+                />
+                <OrbitControls
+                  enablePan={false}
+                  enableZoom={false}
+                  minPolarAngle={Math.PI / 2}
+                  maxPolarAngle={Math.PI / 2}
+                />
+              </Canvas>
+            </div>
+            {!this.state.isMobile && <div class="pad" />}
+            <div
+              class={
+                this.state.isMobile ? "titleWrapperMobile" : "titleWrapper"
+              }
+            >
+              <p class="titleText">Eric Zhou</p>
+              <p class="subtitleText">beep bop</p>
+              <a
+                onClick={() => {
+                  const h = this.splashContainer.current.clientHeight;
+                  window.document.body.scrollTo({
+                    top: h,
+                    behavior: "smooth",
+                  });
+                }}
+              >
+                <i class="fa fa-angle-down scrollIndicator"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="sectionWrapper second">
+            <p class="sectionTitleText">About</p>
+          </div>
+          <div class="sectionWrapper third">
+            <p class="sectionTitleText">Projects</p>
+          </div>
+          <div class="sectionWrapper fourth">
+            <p class="sectionTitleText">Writing</p>
+          </div>
+          <div class="sectionWrapper fifth">
+            <p class="sectionTitleText">Contact</p>
+          </div>
+          <div class="footer"></div>
         </div>
-        <div class="sectionWrapper third">
-          <p class="sectionTitleText">Projects</p>
-        </div>
-        <div class="sectionWrapper fourth">
-          <p class="sectionTitleText">Writing</p>
-        </div>
-        <div class="sectionWrapper fifth">
-          <p class="sectionTitleText">Contact</p>
-        </div>
-        <div class="footer"></div>
-      </div>
+      </>
     );
   }
-
-  // render() {
-  //   return (
-  //     <div class="pageWrapper">
-  //       <div class="second">
-  //         <p class="sectionTitleText">Projects</p>
-  //       </div>
-  //       <div class="third">
-  //         <p class="sectionTitleText">Projects</p>
-  //       </div>
-  //       <div class="fourth" />
-  //     </div>
-  //   );
-  // }
 }

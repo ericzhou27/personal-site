@@ -2,10 +2,12 @@
   box-sizing: border-box;
 }
 
-html,
-body,
-main,
-#root {
+html {
+  height: 100%;
+  overflow: auto;
+}
+
+body {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -13,9 +15,6 @@ main,
   scroll-behavior: smooth;
   background: #202025;
   overflow-y: auto;
-}
-
-body {
   font-family: inter;
   color: black;
   background: #202025;
