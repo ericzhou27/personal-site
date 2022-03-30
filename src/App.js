@@ -31,6 +31,7 @@ import {
 function Model(props) {
   const group = useRef();
   const terminal = useRef();
+  const [quitAutocorrect, setQuitAutocorrect] = useState(0);
   const [showSecret, setShowSecret] = useState(false);
   const { nodes, materials } = useGLTF("/mac-draco.glb");
   const opts = {
@@ -64,8 +65,18 @@ function Model(props) {
       0.1
     );
 
+    if (quitAutocorrect < 10) {
+      const inputs = window.document.querySelectorAll("input");
+      inputs.forEach((input) => {
+        input.setAttribute("autocomplete", "off");
+        input.setAttribute("autocorrect", "off");
+        input.setAttribute("autocapitalize", "off");
+        input.setAttribute("spellcheck", false);
+      });
+      setQuitAutocorrect(quitAutocorrect + 1);
+    }
+
     if (!showSecret && terminal.current.state.inputStr === "cd secret") {
-      console.log("EXECUTE TRANSITION");
       setShowSecret(true);
     }
   });
@@ -135,8 +146,6 @@ function Model(props) {
                       commandColor: "#fff",
                       outputColor: "#fff",
                       errorOutputColor: "#ff89bd",
-                      // fontSize: "0.65rem",
-                      // fontSize: "0.75rem",
                       fontSize: "0.85rem",
                       spacing: "1%",
                       fontFamily: "monospace",
@@ -213,9 +222,13 @@ export default class App extends React.Component {
       isMobile: isMobile,
     });
 
-    window.addEventListener(
+    window.document.body.addEventListener(
       "scroll",
       (e) => {
+        if (e.target.className) {
+          return;
+        }
+
         const splashContainer = this.splashContainer.current;
         const pixFromTop = e.target.scrollTop;
         const h = this.splashContainer.current.clientHeight;
@@ -254,6 +267,8 @@ export default class App extends React.Component {
         } else if (pixFromTop < 5 * h) {
           sectionFive.style.opacity = 1;
         }
+
+        // console.log("SCROLLING - ", pixFromTop, e.target, e.target.className);
       },
       true
     );
@@ -374,7 +389,10 @@ export default class App extends React.Component {
               }
             >
               <p class="titleText">Eric Zhou</p>
-              <p class="subtitleText">beep bop</p>
+              <p class="subtitleText">
+                I graduated from one of Canada's top business schools with
+                really good grades
+              </p>
               <a
                 onClick={() => {
                   const h = this.splashContainer.current.clientHeight;
