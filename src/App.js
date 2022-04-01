@@ -208,12 +208,13 @@ export default class App extends React.Component {
     };
 
     this.splashContainer = React.createRef();
-
     this.sectionOne = React.createRef();
     this.sectionTwo = React.createRef();
     this.sectionThree = React.createRef();
     this.sectionFour = React.createRef();
     this.sectionFive = React.createRef();
+
+    this.scrollTo = this.scrollTo.bind(this);
   }
 
   componentDidMount() {
@@ -274,62 +275,52 @@ export default class App extends React.Component {
     );
   }
 
+  scrollTo(index) {
+    const h = this.splashContainer.current.clientHeight;
+    window.document.body.scrollTo({
+      top: h * index,
+      behavior: "smooth",
+    });
+  }
+
   render() {
     return (
       <>
-        <div class="sidebar">
+        <div class={this.state.isMobile ? "sidebarMobile" : "sidebar"}>
           <div
             ref={this.sectionOne}
             class="sidebarItem"
+            style={{ opacity: 1 }}
             onClick={() => {
-              window.document.body.scrollTo({
-                top: 0,
-                behavior: "smooth",
-              });
+              this.scrollTo(0);
             }}
           />
           <div
             ref={this.sectionTwo}
             class="sidebarItem"
             onClick={() => {
-              const h = this.splashContainer.current.clientHeight;
-              window.document.body.scrollTo({
-                top: h,
-                behavior: "smooth",
-              });
+              this.scrollTo(1);
             }}
           />
           <div
             ref={this.sectionThree}
             class="sidebarItem"
             onClick={() => {
-              const h = this.splashContainer.current.clientHeight;
-              window.document.body.scrollTo({
-                top: h * 2,
-                behavior: "smooth",
-              });
+              this.scrollTo(2);
             }}
           />
           <div
             ref={this.sectionFour}
             class="sidebarItem"
             onClick={() => {
-              const h = this.splashContainer.current.clientHeight;
-              window.document.body.scrollTo({
-                top: h * 3,
-                behavior: "smooth",
-              });
+              this.scrollTo(3);
             }}
           />
           <div
             ref={this.sectionFive}
             class="sidebarItem"
             onClick={() => {
-              const h = this.splashContainer.current.clientHeight;
-              window.document.body.scrollTo({
-                top: h * 4,
-                behavior: "smooth",
-              });
+              this.scrollTo(4);
             }}
           />
         </div>
@@ -383,16 +374,47 @@ export default class App extends React.Component {
               </Canvas>
             </div>
             {!this.state.isMobile && <div class="pad" />}
+            <div class="headerContainer">
+              <p
+                class="headerText"
+                onClick={() => {
+                  this.scrollTo(1);
+                }}
+              >
+                About
+              </p>
+              <p
+                class="headerText"
+                onClick={() => {
+                  this.scrollTo(2);
+                }}
+              >
+                Projects
+              </p>
+              <p
+                class="headerText"
+                onClick={() => {
+                  this.scrollTo(3);
+                }}
+              >
+                Writing
+              </p>
+              <p
+                class="headerText"
+                onClick={() => {
+                  this.scrollTo(4);
+                }}
+              >
+                Contact
+              </p>
+            </div>
             <div
               class={
                 this.state.isMobile ? "titleWrapperMobile" : "titleWrapper"
               }
             >
               <p class="titleText">Eric Zhou</p>
-              <p class="subtitleText">
-                I graduated from one of Canada's top business schools with
-                really good grades
-              </p>
+              <p class="subtitleText">trust me im an engineer</p>
               <a
                 onClick={() => {
                   const h = this.splashContainer.current.clientHeight;
@@ -409,15 +431,89 @@ export default class App extends React.Component {
 
           <div class="sectionWrapper second">
             <p class="sectionTitleText">About</p>
+            <p class="sectionSubtitleText">Education</p>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">Stanford University</p>
+              <p class="sectionTextSubtitle">M.S. Computer Science</p>
+            </div>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">Stanford University</p>
+              <p class="sectionTextSubtitle">B.S. Computer Science</p>
+            </div>
+            <p class="sectionSubtitleText">Experience</p>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">Portals</p>
+              <p class="sectionTextSubtitle">Founder</p>
+            </div>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">Verkada</p>
+              <p class="sectionTextSubtitle">Software Engineering Intern</p>
+            </div>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">Electify</p>
+              <p class="sectionTextSubtitle">Founder</p>
+            </div>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">Stanford SEED</p>
+              <p class="sectionTextSubtitle">PM Intern</p>
+            </div>
           </div>
           <div class="sectionWrapper third">
             <p class="sectionTitleText">Projects</p>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">Portals</p>
+              <p class="sectionTextSubtitle">Founder</p>
+            </div>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">Verkada</p>
+              <p class="sectionTextSubtitle">Software Engineering Intern</p>
+            </div>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">Electify</p>
+              <p class="sectionTextSubtitle">Founder</p>
+            </div>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">Stanford SEED</p>
+              <p class="sectionTextSubtitle">PM Intern</p>
+            </div>
           </div>
           <div class="sectionWrapper fourth">
             <p class="sectionTitleText">Writing</p>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">Portals</p>
+              <p class="sectionTextSubtitle">Founder</p>
+            </div>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">Verkada</p>
+              <p class="sectionTextSubtitle">Software Engineering Intern</p>
+            </div>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">Electify</p>
+              <p class="sectionTextSubtitle">Founder</p>
+            </div>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">Stanford SEED</p>
+              <p class="sectionTextSubtitle">PM Intern</p>
+            </div>
           </div>
           <div class="sectionWrapper fifth">
             <p class="sectionTitleText">Contact</p>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">Email</p>
+              <p class="sectionTextSubtitle">ericzhou@stanford.edu</p>
+            </div>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">Phone Number</p>
+              <p class="sectionTextSubtitle">650-504-8183</p>
+            </div>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">LinkedIn</p>
+              <p class="sectionTextSubtitle">650-504-8183</p>
+            </div>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">Let's Chat</p>
+              <p class="sectionTextSubtitle">CALENDLY LINK</p>
+            </div>
           </div>
           <div class="footer"></div>
         </div>
