@@ -237,6 +237,37 @@ export default class App extends React.Component {
           0,
           e.target.scrollTop - window.innerHeight / 4
         );
+
+        if (!this.state.isMobile) {
+          const sectionOne = this.sectionOne.current;
+          const sectionTwo = this.sectionTwo.current;
+          const sectionThree = this.sectionThree.current;
+          const sectionFour = this.sectionFour.current;
+          const sectionFive = this.sectionFive.current;
+
+          sectionOne.style.opacity = 0.5;
+          sectionTwo.style.opacity = 0.5;
+          sectionThree.style.opacity = 0.5;
+          sectionFour.style.opacity = 0.5;
+          sectionFive.style.opacity = 0.5;
+
+          if (pixFromTop < h) {
+            sectionOne.style.opacity = 1;
+          } else if (pixFromTop < 2 * h) {
+            sectionTwo.style.opacity = 1;
+          } else if (pixFromTop < 3 * h) {
+            sectionThree.style.opacity = 1;
+          } else if (pixFromTop < 4 * h) {
+            sectionFour.style.opacity = 1;
+          } else if (pixFromTop < 5 * h) {
+            sectionFive.style.opacity = 1;
+          }
+        }
+
+        if (pixFromTop > h) {
+          return;
+        }
+
         splashContainer.style.filter = `blur(${Math.min(
           pixFromQuarter / 5,
           10
@@ -244,32 +275,6 @@ export default class App extends React.Component {
           1 - pixFromQuarter / window.innerHeight,
           0.5
         )})`;
-
-        const sectionOne = this.sectionOne.current;
-        const sectionTwo = this.sectionTwo.current;
-        const sectionThree = this.sectionThree.current;
-        const sectionFour = this.sectionFour.current;
-        const sectionFive = this.sectionFive.current;
-
-        sectionOne.style.opacity = 0.5;
-        sectionTwo.style.opacity = 0.5;
-        sectionThree.style.opacity = 0.5;
-        sectionFour.style.opacity = 0.5;
-        sectionFive.style.opacity = 0.5;
-
-        if (pixFromTop < h) {
-          sectionOne.style.opacity = 1;
-        } else if (pixFromTop < 2 * h) {
-          sectionTwo.style.opacity = 1;
-        } else if (pixFromTop < 3 * h) {
-          sectionThree.style.opacity = 1;
-        } else if (pixFromTop < 4 * h) {
-          sectionFour.style.opacity = 1;
-        } else if (pixFromTop < 5 * h) {
-          sectionFive.style.opacity = 1;
-        }
-
-        // console.log("SCROLLING - ", pixFromTop, e.target, e.target.className);
       },
       true
     );
@@ -286,44 +291,46 @@ export default class App extends React.Component {
   render() {
     return (
       <>
-        <div class={this.state.isMobile ? "sidebarMobile" : "sidebar"}>
-          <div
-            ref={this.sectionOne}
-            class="sidebarItem"
-            style={{ opacity: 1 }}
-            onClick={() => {
-              this.scrollTo(0);
-            }}
-          />
-          <div
-            ref={this.sectionTwo}
-            class="sidebarItem"
-            onClick={() => {
-              this.scrollTo(1);
-            }}
-          />
-          <div
-            ref={this.sectionThree}
-            class="sidebarItem"
-            onClick={() => {
-              this.scrollTo(2);
-            }}
-          />
-          <div
-            ref={this.sectionFour}
-            class="sidebarItem"
-            onClick={() => {
-              this.scrollTo(3);
-            }}
-          />
-          <div
-            ref={this.sectionFive}
-            class="sidebarItem"
-            onClick={() => {
-              this.scrollTo(4);
-            }}
-          />
-        </div>
+        {!this.state.isMobile && (
+          <div class={this.state.isMobile ? "sidebarMobile" : "sidebar"}>
+            <div
+              ref={this.sectionOne}
+              class="sidebarItem"
+              style={{ opacity: 1 }}
+              onClick={() => {
+                this.scrollTo(0);
+              }}
+            />
+            <div
+              ref={this.sectionTwo}
+              class="sidebarItem"
+              onClick={() => {
+                this.scrollTo(1);
+              }}
+            />
+            <div
+              ref={this.sectionThree}
+              class="sidebarItem"
+              onClick={() => {
+                this.scrollTo(2);
+              }}
+            />
+            <div
+              ref={this.sectionFour}
+              class="sidebarItem"
+              onClick={() => {
+                this.scrollTo(3);
+              }}
+            />
+            <div
+              ref={this.sectionFive}
+              class="sidebarItem"
+              onClick={() => {
+                this.scrollTo(4);
+              }}
+            />
+          </div>
+        )}
 
         <div class="pageWrapper">
           <div
