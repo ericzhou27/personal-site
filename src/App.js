@@ -26,6 +26,7 @@ import {
   musea,
   ruma,
   lightboard,
+  help
 } from "./constants/strings";
 
 function Model(props) {
@@ -88,6 +89,9 @@ function Model(props) {
       },
       "/HOBBIES.txt": {
         content: hobbies,
+      },
+      "/HELP.txt": {
+        content: help,
       },
       "/secret": {},
       "/projects": {},
