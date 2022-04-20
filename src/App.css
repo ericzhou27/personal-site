@@ -175,12 +175,17 @@
   flex-direction: row;
   width: 100%;
   margin: 0px;
-  margin-bottom: 1vmin;
-  /* border: 1px solid red; */
+  /* padding-top: 1vmin; */
+  /* margin-bottom: 1vmin; */
   border: solid rgba(255, 255, 255, 0.5);
   border-width: 0px 0px 0.5px 0px;
-  padding: 1vmax 0vmax 1vmax 0vmax;
-  /* border-radius: 5px; */
+  padding: 1.25vmax 0vmax 1vmax 0vmax;
+}
+
+.sectionRow:hover {
+  opacity: 0.5;
+  cursor: pointer;
+  /* background-color: rgba(255, 255, 255, 0.05); */
 }
 
 .sectionTextTitle {
@@ -244,18 +249,18 @@
 
 .sidebarItem {
   height: 5vmax;
-  width: 1.5vmin;
-  max-width: 12px;
+  width: 1.25vmin;
+  max-width: 8px;
   margin: 1vmin;
   margin-left: 0px;
   background-color: white;
-  border-radius: 10px;
-  opacity: 0.5;
+  border-radius: 2px;
+  opacity: 0.15;
 }
 
 .sidebarItem:hover,
 .headerText:hover {
-  opacity: 0.5;
+  opacity: 0.15;
   cursor: pointer;
 }
 

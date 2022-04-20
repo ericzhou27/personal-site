@@ -105,7 +105,7 @@ function Model(props) {
   const newOutputs = Outputs.addRecord(
     defaultOutputs,
     OutputFactory.makeTextOutput(
-      `--------------\n✨ CLICK ME ✨\n--------------`
+      `--------------------\n✨ CLICK ME I WORK ✨\n--------------------`
     )
   );
   const emulatorState = customState.setOutputs(newOutputs);
@@ -245,11 +245,11 @@ export default class App extends React.Component {
           const sectionFour = this.sectionFour.current;
           const sectionFive = this.sectionFive.current;
 
-          sectionOne.style.opacity = 0.5;
-          sectionTwo.style.opacity = 0.5;
-          sectionThree.style.opacity = 0.5;
-          sectionFour.style.opacity = 0.5;
-          sectionFive.style.opacity = 0.5;
+          sectionOne.style.opacity = 0.15;
+          sectionTwo.style.opacity = 0.15;
+          sectionThree.style.opacity = 0.15;
+          sectionFour.style.opacity = 0.15;
+          sectionFive.style.opacity = 0.15;
 
           if (pixFromTop < h) {
             sectionOne.style.opacity = 1;
@@ -291,7 +291,7 @@ export default class App extends React.Component {
   render() {
     return (
       <>
-        {!this.state.isMobile && (
+        {/* {!this.state.isMobile && (
           <div class={this.state.isMobile ? "sidebarMobile" : "sidebar"}>
             <div
               ref={this.sectionOne}
@@ -330,7 +330,7 @@ export default class App extends React.Component {
               }}
             />
           </div>
-        )}
+        )} */} 
 
         <div class="pageWrapper">
           <div
@@ -381,7 +381,7 @@ export default class App extends React.Component {
               </Canvas>
             </div>
             {!this.state.isMobile && <div class="pad" />}
-            <div class="headerContainer">
+            {/* <div class="headerContainer">
               <p
                 class="headerText"
                 onClick={() => {
@@ -414,15 +414,16 @@ export default class App extends React.Component {
               >
                 Contact
               </p>
-            </div>
+            </div> */}
             <div
               class={
                 this.state.isMobile ? "titleWrapperMobile" : "titleWrapper"
               }
             >
               <p class="titleText">Eric Zhou</p>
-              <p class="subtitleText">trust me im an engineer</p>
-              <a
+              <p class="subtitleText">Stanford CS | Portals Co-Founder</p>
+              {/* <p class="subtitleText">I like building things :)</p> */}
+              {/* <a
                 onClick={() => {
                   const h = this.splashContainer.current.clientHeight;
                   window.document.body.scrollTo({
@@ -432,11 +433,11 @@ export default class App extends React.Component {
                 }}
               >
                 <i class="fa fa-angle-down scrollIndicator"></i>
-              </a>
+              </a> */}
             </div>
           </div>
 
-          <div class="sectionWrapper second">
+          {/* <div class="sectionWrapper second">
             <p class="sectionTitleText">About</p>
             <p class="sectionSubtitleText">Education</p>
             <div class="sectionRow">
@@ -469,19 +470,23 @@ export default class App extends React.Component {
             <p class="sectionTitleText">Projects</p>
             <div class="sectionRow">
               <p class="sectionTextTitle">Portals</p>
-              <p class="sectionTextSubtitle">Founder</p>
-            </div>
-            <div class="sectionRow">
-              <p class="sectionTextTitle">Verkada</p>
-              <p class="sectionTextSubtitle">Software Engineering Intern</p>
+              <p class="sectionTextSubtitle">Description</p>
             </div>
             <div class="sectionRow">
               <p class="sectionTextTitle">Electify</p>
-              <p class="sectionTextSubtitle">Founder</p>
+              <p class="sectionTextSubtitle">Description</p>
             </div>
             <div class="sectionRow">
-              <p class="sectionTextTitle">Stanford SEED</p>
-              <p class="sectionTextSubtitle">PM Intern</p>
+              <p class="sectionTextTitle">Musea</p>
+              <p class="sectionTextSubtitle">Description</p>
+            </div>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">Ruma</p>
+              <p class="sectionTextSubtitle">Description</p>
+            </div>
+            <div class="sectionRow">
+              <p class="sectionTextTitle">Lightboard</p>
+              <p class="sectionTextSubtitle">Description</p>
             </div>
           </div>
           <div class="sectionWrapper fourth">
@@ -510,19 +515,19 @@ export default class App extends React.Component {
               <p class="sectionTextSubtitle">ericzhou@stanford.edu</p>
             </div>
             <div class="sectionRow">
-              <p class="sectionTextTitle">Phone Number</p>
-              <p class="sectionTextSubtitle">650-504-8183</p>
-            </div>
-            <div class="sectionRow">
               <p class="sectionTextTitle">LinkedIn</p>
-              <p class="sectionTextSubtitle">650-504-8183</p>
+              <p class="sectionTextSubtitle">
+                https://www.linkedin.com/in/ericzhou27/
+              </p>
             </div>
             <div class="sectionRow">
               <p class="sectionTextTitle">Let's Chat</p>
-              <p class="sectionTextSubtitle">CALENDLY LINK</p>
+              <p class="sectionTextSubtitle">
+                https://calendly.com/ericzhou27/chill-chat
+              </p>
             </div>
-          </div>
-          <div class="footer"></div>
+          </div> */}
+          {/* <div class="footer"></div> */}
         </div>
       </>
     );

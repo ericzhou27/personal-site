@@ -28,8 +28,16 @@ export const hobbies = `
 export const portals = `
 ---------------------------------------
 PORTALS 🌀
-• Building stuff
-• Writing
+• Platform allowing creators to 
+  host their communities - 
+  complete with call rooms, 
+  chat rooms, leaderboards,
+  and a subscription system. 
+• Backed by Floodgate, Sequoia
+  Scout, Alchemist, Z-fellows.
+• Stanford BASES 100k Challenge 
+  Finalist, won best undergrad
+  team.
 ---------------------------------------
 
 `;
@@ -37,8 +45,13 @@ PORTALS 🌀
 export const electify = `
 ---------------------------------------
 ELECTIFY 🗳️
-• Building stuff
-• Writing
+• Digital canvassing system used 
+  by 120+ campaigns in 2020 to 
+  reach 100k+ voters across 15 
+  states.
+• 600x cheaper than existing tools,
+  10x faster than calling/texting
+  by hand
 ---------------------------------------
 
 `;
@@ -46,8 +59,11 @@ ELECTIFY 🗳️
 export const musea = `
 ---------------------------------------
 MUSEA 🖼️ 
-• Building stuff
-• Writing
+• A virtual gallery for people to 
+  showcase their NFTs. Complete with
+  music, a fireplace, and furniture ;)
+• Visit a sample gallery at 
+  https://musea.gallery/sample.
 ---------------------------------------
 
 `;
@@ -55,8 +71,12 @@ MUSEA 🖼️
 export const ruma = `
 ---------------------------------------
 RUMA 💰
-• Building stuff
-• Writing
+• Trade NFTs like Nancy Pelosi trades
+  stocks!
+• A tool allowing you to track to 
+  accounts and the NFT projects they buy
+  on OpenSea.
+• See it at https://ruma.trading/.
 ---------------------------------------
 
 `;
@@ -64,8 +84,11 @@ RUMA 💰
 export const lightboard = `
 ---------------------------------------
 LIGHTBOARD 💡 
-• Building stuff
-• Writing
+• An multiplayer, augmented reality 
+  whiteboard.
+• Literally no practical application,
+  was really cool to build though~
+• Will upload demo soon ;)
 ---------------------------------------
 
 `;
