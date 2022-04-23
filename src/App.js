@@ -26,7 +26,7 @@ import {
   musea,
   ruma,
   lightboard,
-  help
+  help,
 } from "./constants/strings";
 
 function Model(props) {
@@ -227,61 +227,61 @@ export default class App extends React.Component {
       isMobile: isMobile,
     });
 
-    window.document.body.addEventListener(
-      "scroll",
-      (e) => {
-        if (e.target.className) {
-          return;
-        }
+    // window.document.body.addEventListener(
+    //   "scroll",
+    //   (e) => {
+    //     if (e.target.className) {
+    //       return;
+    //     }
 
-        const splashContainer = this.splashContainer.current;
-        const pixFromTop = e.target.scrollTop;
-        const h = this.splashContainer.current.clientHeight;
-        let pixFromQuarter = Math.max(
-          0,
-          e.target.scrollTop - window.innerHeight / 4
-        );
+    //     const splashContainer = this.splashContainer.current;
+    //     const pixFromTop = e.target.scrollTop;
+    //     const h = this.splashContainer.current.clientHeight;
+    //     let pixFromQuarter = Math.max(
+    //       0,
+    //       e.target.scrollTop - window.innerHeight / 4
+    //     );
 
-        if (!this.state.isMobile) {
-          const sectionOne = this.sectionOne.current;
-          const sectionTwo = this.sectionTwo.current;
-          const sectionThree = this.sectionThree.current;
-          const sectionFour = this.sectionFour.current;
-          const sectionFive = this.sectionFive.current;
+    //     if (!this.state.isMobile) {
+    //       const sectionOne = this.sectionOne.current;
+    //       const sectionTwo = this.sectionTwo.current;
+    //       const sectionThree = this.sectionThree.current;
+    //       const sectionFour = this.sectionFour.current;
+    //       const sectionFive = this.sectionFive.current;
 
-          sectionOne.style.opacity = 0.15;
-          sectionTwo.style.opacity = 0.15;
-          sectionThree.style.opacity = 0.15;
-          sectionFour.style.opacity = 0.15;
-          sectionFive.style.opacity = 0.15;
+    //       sectionOne.style.opacity = 0.15;
+    //       sectionTwo.style.opacity = 0.15;
+    //       sectionThree.style.opacity = 0.15;
+    //       sectionFour.style.opacity = 0.15;
+    //       sectionFive.style.opacity = 0.15;
 
-          if (pixFromTop < h) {
-            sectionOne.style.opacity = 1;
-          } else if (pixFromTop < 2 * h) {
-            sectionTwo.style.opacity = 1;
-          } else if (pixFromTop < 3 * h) {
-            sectionThree.style.opacity = 1;
-          } else if (pixFromTop < 4 * h) {
-            sectionFour.style.opacity = 1;
-          } else if (pixFromTop < 5 * h) {
-            sectionFive.style.opacity = 1;
-          }
-        }
+    //       if (pixFromTop < h) {
+    //         sectionOne.style.opacity = 1;
+    //       } else if (pixFromTop < 2 * h) {
+    //         sectionTwo.style.opacity = 1;
+    //       } else if (pixFromTop < 3 * h) {
+    //         sectionThree.style.opacity = 1;
+    //       } else if (pixFromTop < 4 * h) {
+    //         sectionFour.style.opacity = 1;
+    //       } else if (pixFromTop < 5 * h) {
+    //         sectionFive.style.opacity = 1;
+    //       }
+    //     }
 
-        if (pixFromTop > h) {
-          return;
-        }
+    //     if (pixFromTop > h) {
+    //       return;
+    //     }
 
-        splashContainer.style.filter = `blur(${Math.min(
-          pixFromQuarter / 5,
-          10
-        )}px) brightness(${Math.max(
-          1 - pixFromQuarter / window.innerHeight,
-          0.5
-        )})`;
-      },
-      true
-    );
+    //     splashContainer.style.filter = `blur(${Math.min(
+    //       pixFromQuarter / 5,
+    //       10
+    //     )}px) brightness(${Math.max(
+    //       1 - pixFromQuarter / window.innerHeight,
+    //       0.5
+    //     )})`;
+    //   },
+    //   true
+    // );
   }
 
   scrollTo(index) {
@@ -334,7 +334,7 @@ export default class App extends React.Component {
               }}
             />
           </div>
-        )} */} 
+        )} */}
 
         <div class="pageWrapper">
           <div
@@ -425,7 +425,8 @@ export default class App extends React.Component {
               }
             >
               <p class="titleText">Eric Zhou</p>
-              <p class="subtitleText">Stanford CS | Portals Co-Founder</p>
+              <p class="subtitleText">Stanford CS | Co-Founder @ Portals</p>
+              <p class="miniText">ZFellows | Alchemist Class 29 | Floodgate Reactor '22</p>
               {/* <p class="subtitleText">I like building things :)</p> */}
               {/* <a
                 onClick={() => {
