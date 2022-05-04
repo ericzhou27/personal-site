@@ -426,7 +426,7 @@ export default class App extends React.Component {
             >
               <p class="titleText">Eric Zhou</p>
               <p class="subtitleText">Stanford CS | Co-Founder @ Portals</p>
-              <p class="miniText">ZFellows | Alchemist Class 29 | Floodgate Reactor '22</p>
+              <p class="miniText">ZFellows Class 3 | Alchemist Class 29</p>
               {/* <p class="subtitleText">I like building things :)</p> */}
               {/* <a
                 onClick={() => {
