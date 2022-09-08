@@ -226,62 +226,6 @@ export default class App extends React.Component {
     this.setState({
       isMobile: isMobile,
     });
-
-    // window.document.body.addEventListener(
-    //   "scroll",
-    //   (e) => {
-    //     if (e.target.className) {
-    //       return;
-    //     }
-
-    //     const splashContainer = this.splashContainer.current;
-    //     const pixFromTop = e.target.scrollTop;
-    //     const h = this.splashContainer.current.clientHeight;
-    //     let pixFromQuarter = Math.max(
-    //       0,
-    //       e.target.scrollTop - window.innerHeight / 4
-    //     );
-
-    //     if (!this.state.isMobile) {
-    //       const sectionOne = this.sectionOne.current;
-    //       const sectionTwo = this.sectionTwo.current;
-    //       const sectionThree = this.sectionThree.current;
-    //       const sectionFour = this.sectionFour.current;
-    //       const sectionFive = this.sectionFive.current;
-
-    //       sectionOne.style.opacity = 0.15;
-    //       sectionTwo.style.opacity = 0.15;
-    //       sectionThree.style.opacity = 0.15;
-    //       sectionFour.style.opacity = 0.15;
-    //       sectionFive.style.opacity = 0.15;
-
-    //       if (pixFromTop < h) {
-    //         sectionOne.style.opacity = 1;
-    //       } else if (pixFromTop < 2 * h) {
-    //         sectionTwo.style.opacity = 1;
-    //       } else if (pixFromTop < 3 * h) {
-    //         sectionThree.style.opacity = 1;
-    //       } else if (pixFromTop < 4 * h) {
-    //         sectionFour.style.opacity = 1;
-    //       } else if (pixFromTop < 5 * h) {
-    //         sectionFive.style.opacity = 1;
-    //       }
-    //     }
-
-    //     if (pixFromTop > h) {
-    //       return;
-    //     }
-
-    //     splashContainer.style.filter = `blur(${Math.min(
-    //       pixFromQuarter / 5,
-    //       10
-    //     )}px) brightness(${Math.max(
-    //       1 - pixFromQuarter / window.innerHeight,
-    //       0.5
-    //     )})`;
-    //   },
-    //   true
-    // );
   }
 
   scrollTo(index) {
@@ -295,47 +239,6 @@ export default class App extends React.Component {
   render() {
     return (
       <>
-        {/* {!this.state.isMobile && (
-          <div class={this.state.isMobile ? "sidebarMobile" : "sidebar"}>
-            <div
-              ref={this.sectionOne}
-              class="sidebarItem"
-              style={{ opacity: 1 }}
-              onClick={() => {
-                this.scrollTo(0);
-              }}
-            />
-            <div
-              ref={this.sectionTwo}
-              class="sidebarItem"
-              onClick={() => {
-                this.scrollTo(1);
-              }}
-            />
-            <div
-              ref={this.sectionThree}
-              class="sidebarItem"
-              onClick={() => {
-                this.scrollTo(2);
-              }}
-            />
-            <div
-              ref={this.sectionFour}
-              class="sidebarItem"
-              onClick={() => {
-                this.scrollTo(3);
-              }}
-            />
-            <div
-              ref={this.sectionFive}
-              class="sidebarItem"
-              onClick={() => {
-                this.scrollTo(4);
-              }}
-            />
-          </div>
-        )} */}
-
         <div class="pageWrapper">
           <div
             class="splashContainer"
@@ -385,40 +288,6 @@ export default class App extends React.Component {
               </Canvas>
             </div>
             {!this.state.isMobile && <div class="pad" />}
-            {/* <div class="headerContainer">
-              <p
-                class="headerText"
-                onClick={() => {
-                  this.scrollTo(1);
-                }}
-              >
-                About
-              </p>
-              <p
-                class="headerText"
-                onClick={() => {
-                  this.scrollTo(2);
-                }}
-              >
-                Projects
-              </p>
-              <p
-                class="headerText"
-                onClick={() => {
-                  this.scrollTo(3);
-                }}
-              >
-                Writing
-              </p>
-              <p
-                class="headerText"
-                onClick={() => {
-                  this.scrollTo(4);
-                }}
-              >
-                Contact
-              </p>
-            </div> */}
             <div
               class={
                 this.state.isMobile ? "titleWrapperMobile" : "titleWrapper"
@@ -427,112 +296,8 @@ export default class App extends React.Component {
               <p class="titleText">Eric Zhou</p>
               <p class="subtitleText">Stanford CS | Co-Founder @ Portals</p>
               <p class="miniText">ZFellows Class 3 | Alchemist Class 29</p>
-              {/* <p class="subtitleText">I like building things :)</p> */}
-              {/* <a
-                onClick={() => {
-                  const h = this.splashContainer.current.clientHeight;
-                  window.document.body.scrollTo({
-                    top: h,
-                    behavior: "smooth",
-                  });
-                }}
-              >
-                <i class="fa fa-angle-down scrollIndicator"></i>
-              </a> */}
             </div>
           </div>
-
-          {/* <div class="sectionWrapper second">
-            <p class="sectionTitleText">About</p>
-            <p class="sectionSubtitleText">Education</p>
-            <div class="sectionRow">
-              <p class="sectionTextTitle">Stanford University</p>
-              <p class="sectionTextSubtitle">M.S. Computer Science</p>
-            </div>
-            <div class="sectionRow">
-              <p class="sectionTextTitle">Stanford University</p>
-              <p class="sectionTextSubtitle">B.S. Computer Science</p>
-            </div>
-            <p class="sectionSubtitleText">Experience</p>
-            <div class="sectionRow">
-              <p class="sectionTextTitle">Portals</p>
-              <p class="sectionTextSubtitle">Founder</p>
-            </div>
-            <div class="sectionRow">
-              <p class="sectionTextTitle">Verkada</p>
-              <p class="sectionTextSubtitle">Software Engineering Intern</p>
-            </div>
-            <div class="sectionRow">
-              <p class="sectionTextTitle">Electify</p>
-              <p class="sectionTextSubtitle">Founder</p>
-            </div>
-            <div class="sectionRow">
-              <p class="sectionTextTitle">Stanford SEED</p>
-              <p class="sectionTextSubtitle">PM Intern</p>
-            </div>
-          </div>
-          <div class="sectionWrapper third">
-            <p class="sectionTitleText">Projects</p>
-            <div class="sectionRow">
-              <p class="sectionTextTitle">Portals</p>
-              <p class="sectionTextSubtitle">Description</p>
-            </div>
-            <div class="sectionRow">
-              <p class="sectionTextTitle">Electify</p>
-              <p class="sectionTextSubtitle">Description</p>
-            </div>
-            <div class="sectionRow">
-              <p class="sectionTextTitle">Musea</p>
-              <p class="sectionTextSubtitle">Description</p>
-            </div>
-            <div class="sectionRow">
-              <p class="sectionTextTitle">Ruma</p>
-              <p class="sectionTextSubtitle">Description</p>
-            </div>
-            <div class="sectionRow">
-              <p class="sectionTextTitle">Lightboard</p>
-              <p class="sectionTextSubtitle">Description</p>
-            </div>
-          </div>
-          <div class="sectionWrapper fourth">
-            <p class="sectionTitleText">Writing</p>
-            <div class="sectionRow">
-              <p class="sectionTextTitle">Portals</p>
-              <p class="sectionTextSubtitle">Founder</p>
-            </div>
-            <div class="sectionRow">
-              <p class="sectionTextTitle">Verkada</p>
-              <p class="sectionTextSubtitle">Software Engineering Intern</p>
-            </div>
-            <div class="sectionRow">
-              <p class="sectionTextTitle">Electify</p>
-              <p class="sectionTextSubtitle">Founder</p>
-            </div>
-            <div class="sectionRow">
-              <p class="sectionTextTitle">Stanford SEED</p>
-              <p class="sectionTextSubtitle">PM Intern</p>
-            </div>
-          </div>
-          <div class="sectionWrapper fifth">
-            <p class="sectionTitleText">Contact</p>
-            <div class="sectionRow">
-              <p class="sectionTextTitle">Email</p>
-              <p class="sectionTextSubtitle">ericzhou@stanford.edu</p>
-            </div>
-            <div class="sectionRow">
-              <p class="sectionTextTitle">LinkedIn</p>
-              <p class="sectionTextSubtitle">
-                https://www.linkedin.com/in/ericzhou27/
-              </p>
-            </div>
-            <div class="sectionRow">
-              <p class="sectionTextTitle">Let's Chat</p>
-              <p class="sectionTextSubtitle">
-                https://calendly.com/ericzhou27/chill-chat
-              </p>
-            </div>
-          </div> */}
-          {/* <div class="footer"></div> */}
         </div>
       </>
     );
