@@ -5,22 +5,41 @@ EDUCATION
 • Stanford - M.S. Computer Science
 
 WORK EXPERIENCE
+• Beacons.ai - Growth (2022)
+  a16z-backed Series A.
 • Portals - Co-founder (2021 - 2022)
-• Verkada - SWE Intern (2021)
-• Electify - Co-founder (2020)
-• Stanford SEED - PM Intern (2019)
+  Acq. by Beacons.ai.
+  Floodgate, Alchemist-backed.
+• Verkada - SWE (2021)
+  Sequoia-backed Unicorn.
 ---------------------------------------
 
 `;
 
 export const hobbies = `
 ---------------------------------------
-• Building stuff
-• Writing
-• Hiking trails
-• Going to the gym
+• Writing WYSJ
+• Building things
 • Watching Netflix kdramas
+• Hiking trails
 • Reading biographies
+---------------------------------------
+
+`;
+
+export const wysj = `
+---------------------------------------
+WHY YOU SHOULD JOIN 📓
+• Monthly newsletter doing
+  deep dives on early-stage
+  startups worth joining.
+• 1500+ readers including 
+  Parters at Sequoia, a Head
+  of Product at Webflow, and
+  Lenny Rachitsky. 
+• Partnered with Sequoia,
+  Greylock, Index, Founders
+  Fund, 8VC, Neo, and Thrive.
 ---------------------------------------
 
 `;
@@ -28,16 +47,18 @@ export const hobbies = `
 export const portals = `
 ---------------------------------------
 PORTALS 🌀
-• Platform allowing creators to 
-  host their communities - 
-  complete with call rooms, 
-  chat rooms, leaderboards,
-  and a subscription system. 
+• Creator communities platform.
+  Used by 30 creators with over
+  50 million total followers.
+  Fans sent 100k+ messages and
+  spent 500+ hours in call rooms
+  monthly. 
 • Backed by Floodgate, Sequoia
   Scout, Alchemist, Z-fellows.
 • Stanford BASES 100k Challenge 
   Finalist, won best undergrad
   team.
+• Acquired by Beacons.ai. 
 ---------------------------------------
 
 `;
@@ -61,9 +82,7 @@ export const musea = `
 MUSEA 🖼️ 
 • A virtual gallery for people to 
   showcase their NFTs. Complete with
-  music, a fireplace, and furniture ;)
-• Visit a sample gallery at 
-  https://musea.gallery/sample.
+  music, a fireplace, and furniture.
 ---------------------------------------
 
 `;
@@ -76,7 +95,6 @@ RUMA 💰
 • A tool allowing you to track to 
   accounts and the NFT projects they buy
   on OpenSea.
-• See it at https://ruma.trading/.
 ---------------------------------------
 
 `;

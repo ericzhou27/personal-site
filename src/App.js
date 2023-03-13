@@ -25,6 +25,7 @@ import {
   portals,
   musea,
   ruma,
+  wysj,
   lightboard,
   help,
 } from "./constants/strings";
@@ -95,11 +96,9 @@ function Model(props) {
       },
       "/secret": {},
       "/projects": {},
+      "/projects/WYSJ.txt": { content: wysj },
       "/projects/PORTALS.txt": { content: portals },
       "/projects/ELECTIFY.txt": { content: electify },
-      "/projects/MUSEA.txt": { content: musea },
-      "/projects/RUMA.txt": { content: ruma },
-      "/projects/LIGHTBOARD.txt": { content: lightboard },
     }),
   });
 
@@ -294,8 +293,8 @@ export default class App extends React.Component {
               }
             >
               <p class="titleText">Eric Zhou</p>
-              <p class="subtitleText">Stanford CS | Co-Founder @ Portals</p>
-              <p class="miniText">ZFellows Class 3 | Alchemist Class 29</p>
+              {/* <p class="subtitleText">Stanford CS</p> */}
+              <p class="miniText">Stanford CS | Floodgate | Alchemist | ZFellows </p>
             </div>
           </div>
         </div>
