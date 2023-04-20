@@ -139,7 +139,7 @@ function Model(props) {
                 ) : (
                   <ReactTerminal
                     ref={terminal}
-                    inputStr="ls"
+                    inputStr="cat HELP.txt"
                     clickToFocus={true}
                     emulatorState={emulatorState}
                     promptSymbol="ericzhou@myth64:~$ "
