@@ -78,9 +78,9 @@ function Model(props) {
       setQuitAutocorrect(quitAutocorrect + 1);
     }
 
-    if (!showSecret && terminal.current.state.inputStr === "cd secret") {
-      setShowSecret(true);
-    }
+    // if (!showSecret && terminal.current.state.inputStr === "cd secret") {
+    //   setShowSecret(true);
+    // }
   });
 
   const customState = EmulatorState.create({
