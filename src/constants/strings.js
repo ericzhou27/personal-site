@@ -5,13 +5,13 @@ EDUCATION
 • Stanford - M.S. Computer Science
 
 WORK EXPERIENCE
-• Beacons.ai - Growth (2022)
-  a16z-backed Series A.
+• a16z - Investing (2024 - Present)
+  Apps, Infra, AI.
+• Warp - Engineering (2023 - 2024)
+  Sequoia-backed Series B.
 • Portals - Co-founder (2021 - 2022)
   Acq. by Beacons.ai.
   Floodgate, Alchemist-backed.
-• Verkada - SWE (2021)
-  Sequoia-backed Unicorn.
 ---------------------------------------
 
 `;
@@ -21,7 +21,7 @@ export const hobbies = `
 • Writing WYSJ
 • Building things
 • Watching Netflix kdramas
-• Hiking trails
+• Eating burritos
 • Reading biographies
 ---------------------------------------
 
@@ -33,8 +33,8 @@ WHY YOU SHOULD JOIN 📓
 • Monthly newsletter doing
   deep dives on early-stage
   startups worth joining.
-• 1500+ readers including 
-  Parters at Sequoia, a Head
+• 22000+ readers including 
+  Partners at Sequoia, a Head
   of Product at Webflow, and
   Lenny Rachitsky. 
 • Partnered with Sequoia,

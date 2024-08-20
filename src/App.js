@@ -297,8 +297,7 @@ export default class App extends React.Component {
               }
             >
               <p class="titleText">Eric Zhou</p>
-              {/* <p class="subtitleText">Stanford CS</p> */}
-              <p class="miniText">Stanford CS | Floodgate | Alchemist | ZFellows </p>
+              <p class="miniText">Andreessen Horowitz | Stanford | ZFellows </p>
             </div>
           </div>
         </div>
